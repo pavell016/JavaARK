@@ -3,54 +3,88 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        /*
         Scanner input = new Scanner(System.in);
-        boolean program =true;
-        int notes=0;
-        int tot=0;
-        float mitg=0;
-        int ex=0,no=0,be=0,su=0,in=0, md=0;
-        while(program){
-            int nota=input.nextInt();
-            if (nota == -1){
-                program = false;
-                
-            }
+        int torres = input.nextInt();
+        input.nextLine(); // Limpiar el salto de línea después de `nextInt`
 
-            if (nota <=3 && nota>=0){
-                md++;
-                notes++;
-                tot+=nota;
+        ArrayList<String> casos = new ArrayList<>();
+
+        for (int i = 0; i < torres; i++) {
+            boolean possible = true;
+            int animals = input.nextInt();
+            input.nextLine();
+            String cables = input.nextLine().replace(" ", ""); // Limpiar el salto de línea después de `nextInt`
+
+            if (cables.charAt(0) != cables.charAt(cables.length() - 1)) {
+                possible = false;
             }
-            else if (nota<5 && nota >3) {
-                in++;
-                notes++;
-                tot+=nota;
+            for (int j = 0; j < cables.length()-1 ; j++) {
+
+                if (cables.charAt(j) == cables.charAt(j + 1)) {
+                    possible = false;
+                    break; // No es necesario continuar si ya sabemos que es imposible
+                }
             }
-            else if (nota == 5) {
-                su++;
-                notes++;
-                tot+=nota;
-            }
-            else if (nota == 6) {
-                be++;
-                notes++;
-                tot+=nota;
-            }
-            else if (nota == 7 || nota ==8) {
-                no++;
-                notes++;
-                tot+=nota;
-            }
-            else if (nota == 9 || nota ==10) {
-                be++;
-                notes++;
-                tot+=nota;
+            if (possible){
+                casos.add("POSIBLE");
+            }else {
+                casos.add("IMPOSIBLE");
             }
         }
-        mitg = (float)  tot/notes;
-        System.out.println("NOTES: "+notes+" MITJANA: "+mitg+
-                                   " E: "+ex+" N: "+no+" B: "+be+
-                                   " S: "+su+" I: "+in+" MD: "+md);
+        for (String i : casos){
+            System.out.println(i);
+        }
 
+         */
+        Scanner input = new Scanner(System.in);
+        int torres = input.nextInt();
+        input.nextLine(); // Limpiar el salto de línea después de `nextInt`
+        ArrayList<String> casos = new ArrayList<>();
+
+        for (int i = 0; i < torres; i++) {
+            int animals = input.nextInt();
+            input.nextLine(); // Limpiar el salto de línea después de `nextInt`
+            String cables = input.nextLine().replace(" ", ""); // Eliminar espacios de la cadena
+            boolean possible = true;
+
+            // Verificar si la cadena está vacía
+            if (cables.isEmpty()) {
+                possible = false;
+            } else {
+                // Verificar si el primer y último carácter son iguales
+                if (cables.charAt(0) == cables.charAt(cables.length() - 1)) {
+                    System.out.println(possible);
+                    possible = false;
+                }
+
+                // Verificar caracteres consecutivos iguales
+                for (int j = 0; j < cables.length() - 1; j++) {
+                    if (cables.charAt(j) == cables.charAt(j + 1)) {
+
+                        possible = false;
+                        break; // No es necesario continuar si ya sabemos que es imposible
+                    }
+                }
+            }
+
+            // Añadir el resultado basado en si cumple las condiciones o no
+            if (possible == true) {
+                casos.add("POSIBLE");
+            } else {
+                casos.add("IMPOSIBLE");
+            }
+        }
+
+        // Imprimir todos los resultados
+        for (String resultado : casos) {
+            System.out.println(resultado);
+        }
+
+        input.close();
     }
 }
+
+
+
+
