@@ -22,17 +22,45 @@ un constructor propio
         forma incorrecta
      Métodos acelerar(), frenar(), getVelocidad(): puplic, para permitir que se utilicen desde
         otras clases.
+
+TAREA #2
+En la clase Main, crea un objeto del tipo Coche y muestra al usuario el siguiente menú
+[1] Acelerar
+[2] Frenar
+[3] Imprimir velocidad
+[4] Salir
+Prueba tu código escogiendo las diferentes acciones del menú.
+
+
  */
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Scanner input = new Scanner(System.in);
+        coche car = new coche();
+        boolean programa = true;
+        while (programa){
+            System.out.println("[1] Acelerar\n" +
+                                       "[2] Frenar\n" +
+                                       "[3] Imprimir velocidad\n" +
+                                       "[4] Salir");
+            int option = input.nextInt();
+            switch (option){
+                case 1:
+                    car.acelerar(10.00);
+                    break;
+                case 2:
+                    car.frenar(10.00);
+                    break;
+                case 3:
+                    System.out.println(car.geetVelocidad());
+                    break;
+                case 4:
+                    programa = false;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
