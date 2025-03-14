@@ -1,0 +1,39 @@
+tasca 1
+classes:
+	character (atributs correctes | es abstracta)
+	player (Herencia correcta)
+	NPC (Herencia Correcta)
+
+1pt
+
+Tasca 2
+Interfície
+	Fight (es passen atributs d'habilitat | retorna void)
+2pt
+
+
+Tasca 3
+
+Classe
+	habilitat 
+		-get implementat
+		-numeració d'habilitats corecta
+		-atributs de dany implementades
+		-Enum de tipus de mal implementat
+			-En cas de que la classe character l'haguin declarat com a null 
+			 s'ha implementat el tipus NULL
+		-Enum range ha sigut implementat
+			-Valors numerics correctes
+			-Metodes de retorn de distancia i rang segons
+			  el valor de cada atribut del Enum han sigut implementats
+			-En cas de que la classe character l'haguin declarat com a null 
+			 s'ha implementat el tipus NULL	
+2pt
+
+
+
+JAVA
+
+Funcionament del codi correcte, no te cap error de compilació i funciona acorde al diagrama de classes presentat anteriorment
+
+3pt
