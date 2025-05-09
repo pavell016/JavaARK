@@ -16,9 +16,12 @@ public class Main {
 
             while (program){
                 String query_res_poss = "select count(EmployeeID) from northwind.employees;";
-                Statement stmt = conn.createStatement();
+                Statement stmt = conn.prepareStatement(query_res_poss);
                 ResultSet res = stmt.executeQuery(query_res_poss);
-                System.out.println("de quin empleat vols la informacio? [1-9]");
+                if (res.next()){
+                    System.out.println("de quin empleat vols la informacio? [1-"+res.getInt(1)+"]");
+
+                }
                 String option = input.nextLine();
                 if (option.matches("\\d{1}")){
                     String query = "select * from northwind.employees where EmployeeID = "+option+";";
@@ -38,11 +41,14 @@ public class Main {
                         String Region = res.getString("Region");
                         System.out.println(employeeID+" "+LastName+" "+ firstName+" "+ Title+" "+TitleC+" "+BD+" "+HD+" "+Address+" "+City+" "+Region);
                     }
-                    
+                    System.out.println("Quieres seguir? s/n");
+                    option = input.nextLine();
                 }else{
                     continue;
                 }
-
+                if (!option.matches("s|S|SI|si|Si|sI")){
+                    program=false;
+                }
 
             }
 
