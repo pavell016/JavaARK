@@ -6,13 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalculadoraTest {
 
     /**
-     * Aquí hi podem definir algunes accions que han de ser executades abans de cada test unitari
-     */
-    @BeforeEach
-    void setUp() {
-    }
-
-    /**
      * Test unitari per a testejar el mètode Calculadora.suma()
      */
     @Test
